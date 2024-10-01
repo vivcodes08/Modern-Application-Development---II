@@ -1,0 +1,6 @@
+todo
+1.Admin Dashboard
+2.Admin All Songs, All Albums
+3.Search Functionality on UI
+4.Statics controller
+5.Backend Jobs 

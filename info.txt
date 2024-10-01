@@ -1,0 +1,14 @@
+docker cmd to run mailhog image
+
+docker run -d -p 1025:1025 -p 8025:8025 mailhog/mailhog
+
+
+Celery Beat Command
+
+celery -A app.celery_app beat --loglevel DEBUG
+
+
+celery cmad 
+
+
+celery -A app.celery_app worker --loglevel DEBUG

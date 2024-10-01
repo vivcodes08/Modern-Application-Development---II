@@ -1,0 +1,190 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Sangeet Streaming App",
+    "description": "Swagger API documentaion for Sangeet Streaming App.",
+    "version": "1.0"
+  },
+  "basePath": "",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/album/v1/list": {
+      "get": {
+        "summary": "Returns All the Albums List",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/song/v1/api":{
+      "get": {
+        "summary": "Returns All the Songs List [REDIS SERVER REQUIRED]",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+
+    },
+    "/song/v1/api/{songId}":{
+      "get": {
+        "summary": "Returns Song by Id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters":[
+          
+          {
+            "name": "songId",
+            "in": "path",
+            "description": "ID of the song",
+            "required": true,
+            "type": "string"
+          }
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+              "api_key": []
+          }
+      ]
+      }
+
+    },
+    "/celeryTask/status/{taskId}":{
+      "get": {
+        "summary": "Returns the Celery Task Status",
+        "produces": [
+          "application/json"
+        ],
+        "parameters":[
+          
+          {
+            "name": "taskId",
+            "in": "path",
+            "description": "ID of the Task",
+            "required": true,
+            "type": "string"
+          }
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+              "api_key": []
+          }
+      ]
+      }
+
+    },
+    "/album/v1/register":{
+      "post": {
+
+        "summary": "Create an album",
+        "consumes": [
+            "application/json"
+        ],
+        "produces": [
+            "application/json",
+            "application/xml"
+        ],
+        "parameters": [
+            {
+                "in": "body",
+                "name": "body",
+                "description": "order placed for purchasing the pet",
+                "required": true,
+                "example":{
+                  "name":"Love hate",
+                  "description":"This is a popular album",
+                  "imageURL":"http://image.url.com",
+                  "user_id":1,
+                  "creator_id":17,
+                  "creator_name":"dev",
+                  "comment":"Love This Song",
+                  "rating":1
+              }
+            }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+    }
+    }
+  },
+  "securityDefinitions":{
+    "api_key":{
+      "type":"apiKey",
+      "name":"Authentication-Token",
+      "in":"header"
+    }
+  }
+}

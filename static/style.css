@@ -1,0 +1,17 @@
+.login{
+    min-height: calc(100vh);
+}
+
+.root{
+        background-size: contain;
+        background-position: center;
+        background-image: url('./images/music.jpg');
+        height: 100%;
+        width: 100%;
+      }
+.gradient-text {
+        background: linear-gradient(to right, #4a90e2, #8b008b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
